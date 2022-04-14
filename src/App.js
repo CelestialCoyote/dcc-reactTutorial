@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 import AddEntryForm from './Components/AddEntry/AddEntryForm';
+import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
 
 
 function App() {
 
-  const [entries, setEntries] = useState([{weight: 175, date: '04-13-2022'}]);
+  const [entries, setEntries] = useState([{weight: 177, date: '2022-04-11'}, {weight: 175, date: '2022-04-13'}]);
+
+  function addNewEntry(entry) {
+    let tempEntries = [...entries, entry];
+    setEntries(tempEntries);
+  }
 
   return (
     <div>
       <DisplayEntries parentEntries={entries}/>
-      <AddEntryForm />
+      <AddEntryForm addNewEntry={addNewEntry}/>
+      <EntriesChartTracker parentEntries={entries}/>
     </div>
   );
 }

@@ -14,6 +14,7 @@ const AddEntryForm = (props) => {
             date: date
         };
         console.log(newEntry);
+        props.addNewEntry(newEntry);
     }
 
     return (
